@@ -1,0 +1,457 @@
+Homework 2 by zyap
+
+ONE-DIMENSIONAL ROOT FINDING
+
+PRICE FOR A COUPON BOND
+
+yield to maturity = 0.077
+
+bond parameters:
+notional = 1
+period between payments = 0.25
+number of payments = 6
+rate = 0.07
+
+issue time = 1
+initial time = 1.125
+maturity = 2.5
+
+dirty price = 0.998699
+clean price = 0.989949
+accrued interest = 0.00875
+
+DURATION FOR A COUPON BOND
+
+yield to maturity = 0.077
+
+bond parameters:
+notional = 1
+period between payments = 0.25
+number of payments = 6
+rate = 0.07
+
+issue time = 1
+initial time = 1.125
+maturity = 2.5
+
+dollar duration = 1.30984
+
+YIELD TO MATURITY FOR COUPON BOND
+
+bond parameters:
+notional = 1
+period between payments = 0.25
+number of payments = 6
+rate = 0.07
+
+maturity = 2.5
+price = 1.00875
+initial time = 1.125
+initial guess for YTM = 0.035
+expected yield error = 1e-10
+
+YTM = 0.0693659
+
+YIELD TO MATURITY FOR COUPON BOND WITH cfl::RootD
+
+bond parameters:
+notional = 1
+period between payments = 0.25
+number of payments = 6
+rate = 0.07
+
+maturity = 2.5
+price = 1.00875
+initial time = 1.125
+initial guess for YTM = 0.035
+relative yield error = 1e-05
+absolute yield error = 1e-07
+method = secant
+
+YTM = 0.0693659
+
+TEST OF ROOT BRACKETING ALGORITHMS
+
+absolute error = 1e-10
+relative error = 1e-10
+residual error = 1e-10
+maximal number of steps = 3
+
+BISECTION WITH INTERVAL ERRORS
+
+Linear function: f(x) = 2x -1
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+Quadtratic function: f(x) = x^2 - 0.25
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+Exponential function: f(x) = e^x - e^{0.5}
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+BISECTION WITH RESIDUAL ERRORS
+
+Linear function: f(x) = 2x -1
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+Quadtratic function: f(x) = x^2 - 0.25
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+Exponential function: f(x) = e^x - e^{0.5}
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+FALSE POSITION WITH INTERVAL ERRORS
+
+Linear function: f(x) = 2x -1
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+Quadtratic function: f(x) = x^2 - 0.25
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+Exponential function: f(x) = e^x - e^{0.5}
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+FALSE POSITION WITH RESIDUAL ERRORS
+
+Linear function: f(x) = 2x -1
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+Quadtratic function: f(x) = x^2 - 0.25
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+Exponential function: f(x) = e^x - e^{0.5}
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+BRENT WITH INTERVAL ERRORS
+
+Linear function: f(x) = 2x -1
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+Quadtratic function: f(x) = x^2 - 0.25
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.499388
+absolute error for root = 0.000611971
+absolute error for value at root = 0.000611596
+
+Exponential function: f(x) = e^x - e^{0.5}
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.49999
+absolute error for root = 1.01554e-05
+absolute error for value at root = 1.67433e-05
+
+BRENT WITH RESIDUAL ERRORS
+
+Linear function: f(x) = 2x -1
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+Quadtratic function: f(x) = x^2 - 0.25
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.499388
+absolute error for root = 0.000611971
+absolute error for value at root = 0.000611596
+
+Exponential function: f(x) = e^x - e^{0.5}
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.49999
+absolute error for root = 1.01554e-05
+absolute error for value at root = 1.67433e-05
+
+TEST OF ROOT BRACKETING ALGORITHMS
+
+absolute error = 1e-10
+relative error = 1e-10
+residual error = 1e-10
+maximal number of steps = 200
+
+BISECTION WITH INTERVAL ERRORS
+
+Linear function: f(x) = 2x -1
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+Quadtratic function: f(x) = x^2 - 0.25
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+Exponential function: f(x) = e^x - e^{0.5}
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+BISECTION WITH RESIDUAL ERRORS
+
+Linear function: f(x) = 2x -1
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+Quadtratic function: f(x) = x^2 - 0.25
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+Exponential function: f(x) = e^x - e^{0.5}
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+FALSE POSITION WITH INTERVAL ERRORS
+
+Linear function: f(x) = 2x -1
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+Quadtratic function: f(x) = x^2 - 0.25
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+Exponential function: f(x) = e^x - e^{0.5}
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+FALSE POSITION WITH RESIDUAL ERRORS
+
+Linear function: f(x) = 2x -1
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+Quadtratic function: f(x) = x^2 - 0.25
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+Exponential function: f(x) = e^x - e^{0.5}
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+BRENT WITH INTERVAL ERRORS
+
+Linear function: f(x) = 2x -1
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+Quadtratic function: f(x) = x^2 - 0.25
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 3.33067e-16
+absolute error for value at root = 3.33067e-16
+
+Exponential function: f(x) = e^x - e^{0.5}
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+BRENT WITH RESIDUAL ERRORS
+
+Linear function: f(x) = 2x -1
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 0
+absolute error for value at root = 0
+
+Quadtratic function: f(x) = x^2 - 0.25
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 6.29988e-11
+absolute error for value at root = 6.29988e-11
+
+Exponential function: f(x) = e^x - e^{0.5}
+
+initial left bound = 0.25
+initial right bound = 0.75
+root = 0.5
+absolute error for root = 1.11022e-16
+absolute error for value at root = 2.22045e-16
+
+YIELD TO MATURITY FOR A CASH FLOW
+
+initial price = 9.87103
+initial time = 1
+
+cash flow:
+
+      time           value      
+   1.91667               1      
+   2.33333              -2      
+      2.75               3      
+   3.16667               5      
+   3.58333               6      
+         4              -2      
+
+lower bound = 0
+upper bound = 0.2
+relative error for YTM = 1e-05
+absolute error for YTM = 1e-07
+method = brent
+
+YTM = 0.05
+error = 1.48876e-10
+
+FORWARD YIELD TO MATURITY FOR A CASH FLOW
+
+initial time = 1
+
+cash flow:
+
+      time           value      
+   1.91667               1      
+   2.33333              -2      
+      2.75              -3      
+   3.16667               5      
+   3.58333               6      
+         4               2      
+
+lower bound = 0
+upper bound = 0.2
+relative error for YTM = 1e-05
+absolute error for YTM = 1e-07
+method = brent
+
+VALUES VERSUS TIME:
+
+    time           value
+       1       0.0687845
+ 1.28979       0.0701926
+ 1.57957         0.07159
+ 1.86936        0.072972
+ 2.15914       0.0741674
+ 2.44893       0.0753638
+ 2.73871       0.0766752
+  3.0285        0.078469
+ 3.31828       0.0804521
+ 3.60807       0.0830403
+ 3.89785       0.0844893
+

@@ -1,0 +1,8 @@
+Homework 3 by zyap
+
+ONE-DIMENSIONAL INTERPOLATION
+
+CUBIC SPLINE INTERPOLATION WITH GSL
+
+Interpolation  of cubic function: f(x) = 1 + 0.5 + x^2 + 2x^3
+

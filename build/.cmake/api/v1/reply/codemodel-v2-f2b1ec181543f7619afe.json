@@ -1,0 +1,221 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "cfl",
+					"jsonFile" : "directory-cfl-Debug-10d0c319a8cddf0663e3.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "cfl",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"build" : "test",
+					"jsonFile" : "directory-test-Debug-451c0598f41488bb20b9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "test",
+					"targetIndexes" : 
+					[
+						5,
+						9
+					]
+				},
+				{
+					"build" : "setup",
+					"jsonFile" : "directory-setup-Debug-e9213d454cc6d91baca6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "setup",
+					"targetIndexes" : 
+					[
+						4,
+						8
+					]
+				},
+				{
+					"build" : "home1",
+					"jsonFile" : "directory-home1-Debug-3a10eb73abe38f1e07e3.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "home1",
+					"targetIndexes" : 
+					[
+						2,
+						6
+					]
+				},
+				{
+					"build" : "home2",
+					"jsonFile" : "directory-home2-Debug-3d0aba7c721682013757.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "home2",
+					"targetIndexes" : 
+					[
+						3,
+						7
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					],
+					"name" : "FC",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "cfl::@c59ef630bfd1bbfb2039",
+					"jsonFile" : "target-cfl-Debug-3df8371af7b17ebaa2e0.json",
+					"name" : "cfl",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "doc-cfl::@c59ef630bfd1bbfb2039",
+					"jsonFile" : "target-doc-cfl-Debug-feb4079a1b82c0a69e50.json",
+					"name" : "doc-cfl",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "doc-home1::@0950f3ff914b86654916",
+					"jsonFile" : "target-doc-home1-Debug-88798a6e3b8d08362447.json",
+					"name" : "doc-home1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "doc-home2::@59780a56c7ed43b8446f",
+					"jsonFile" : "target-doc-home2-Debug-1b9a2f8826eb99e63472.json",
+					"name" : "doc-home2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "doc-setup::@639fc370f71c08ba6077",
+					"jsonFile" : "target-doc-setup-Debug-9df3f48a0fe22d43faaf.json",
+					"name" : "doc-setup",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "doc-test_all::@36f028580bb02cc8272a",
+					"jsonFile" : "target-doc-test_all-Debug-58687c0352e45a2e1bf0.json",
+					"name" : "doc-test_all",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "home1::@0950f3ff914b86654916",
+					"jsonFile" : "target-home1-Debug-0d131feead092054f7f1.json",
+					"name" : "home1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "home2::@59780a56c7ed43b8446f",
+					"jsonFile" : "target-home2-Debug-66fe9b49c4cb7ed66cd1.json",
+					"name" : "home2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "setup::@639fc370f71c08ba6077",
+					"jsonFile" : "target-setup-Debug-f6c9b2e085523eb245fe.json",
+					"name" : "setup",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "test_all::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_all-Debug-3ccf2f384261e59ef91c.json",
+					"name" : "test_all",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/zhiyun/Desktop/MSCF/M4/FC/CPP/build",
+		"source" : "/Users/zhiyun/Desktop/MSCF/M4/FC/CPP"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
