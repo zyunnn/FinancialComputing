@@ -6,6 +6,7 @@ if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "Debug")
   "doc/cfl/html"
   "doc/home1/html"
   "doc/home2/html"
+  "doc/home3/html"
   "doc/setup/html"
   "doc/test_all/html"
   )

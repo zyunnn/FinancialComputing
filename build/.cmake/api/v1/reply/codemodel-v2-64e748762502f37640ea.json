@@ -12,7 +12,8 @@
 						2,
 						3,
 						4,
-						5
+						5,
+						6
 					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
@@ -50,8 +51,8 @@
 					"source" : "test",
 					"targetIndexes" : 
 					[
-						5,
-						9
+						6,
+						11
 					]
 				},
 				{
@@ -66,8 +67,8 @@
 					"source" : "setup",
 					"targetIndexes" : 
 					[
-						4,
-						8
+						5,
+						10
 					]
 				},
 				{
@@ -83,7 +84,7 @@
 					"targetIndexes" : 
 					[
 						2,
-						6
+						7
 					]
 				},
 				{
@@ -99,7 +100,23 @@
 					"targetIndexes" : 
 					[
 						3,
-						7
+						8
+					]
+				},
+				{
+					"build" : "home3",
+					"jsonFile" : "directory-home3-Debug-1e720e320bb34310ddeb.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "home3",
+					"targetIndexes" : 
+					[
+						4,
+						9
 					]
 				}
 			],
@@ -114,7 +131,8 @@
 						2,
 						3,
 						4,
-						5
+						5,
+						6
 					],
 					"name" : "FC",
 					"targetIndexes" : 
@@ -128,7 +146,9 @@
 						6,
 						7,
 						8,
-						9
+						9,
+						10,
+						11
 					]
 				}
 			],
@@ -163,6 +183,13 @@
 					"projectIndex" : 0
 				},
 				{
+					"directoryIndex" : 6,
+					"id" : "doc-home3::@890ae08d1fd07afaea61",
+					"jsonFile" : "target-doc-home3-Debug-3b0708eba43f55a7292e.json",
+					"name" : "doc-home3",
+					"projectIndex" : 0
+				},
+				{
 					"directoryIndex" : 3,
 					"id" : "doc-setup::@639fc370f71c08ba6077",
 					"jsonFile" : "target-doc-setup-Debug-9df3f48a0fe22d43faaf.json",
@@ -188,6 +215,13 @@
 					"id" : "home2::@59780a56c7ed43b8446f",
 					"jsonFile" : "target-home2-Debug-66fe9b49c4cb7ed66cd1.json",
 					"name" : "home2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "home3::@890ae08d1fd07afaea61",
+					"jsonFile" : "target-home3-Debug-37ebbda23faec171fb8d.json",
+					"name" : "home3",
 					"projectIndex" : 0
 				},
 				{

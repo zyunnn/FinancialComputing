@@ -1,0 +1,104 @@
+{
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"doxygen_add_docs",
+			"include"
+		],
+		"files" : 
+		[
+			"/usr/local/Cellar/cmake/3.25.3/share/cmake/Modules/FindDoxygen.cmake",
+			"CMake/dox.cmake",
+			"home3/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 7,
+				"parent" : 0
+			},
+			{
+				"file" : 1,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 5,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1197,
+				"parent" : 3
+			}
+		]
+	},
+	"id" : "doc-home3::@890ae08d1fd07afaea61",
+	"name" : "doc-home3",
+	"paths" : 
+	{
+		"build" : "home3",
+		"source" : "home3"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				2
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				3
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 4,
+			"path" : "home3/Output.hpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "home3/home3.hpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"isGenerated" : true,
+			"path" : "build/home3/CMakeFiles/doc-home3",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/home3/CMakeFiles/doc-home3.rule",
+			"sourceGroupIndex" : 2
+		}
+	],
+	"type" : "UTILITY"
+}

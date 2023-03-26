@@ -228,6 +228,26 @@
 		{
 			"isGenerated" : true,
 			"path" : "build/CMakeDoxyfile.in"
+		},
+		{
+			"path" : "home3/CMakeLists.txt"
+		},
+		{
+			"path" : "CMake/exe.cmake"
+		},
+		{
+			"path" : "CMake/Output.hpp.in"
+		},
+		{
+			"path" : "CMake/dox.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/CMakeDoxygenDefaults.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/CMakeDoxyfile.in"
 		}
 	],
 	"kind" : "cmakeFiles",

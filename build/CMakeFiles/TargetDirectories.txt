@@ -20,3 +20,7 @@
 /Users/zhiyun/Desktop/MSCF/M4/FC/CPP/build/home2/CMakeFiles/doc-home2.dir
 /Users/zhiyun/Desktop/MSCF/M4/FC/CPP/build/home2/CMakeFiles/edit_cache.dir
 /Users/zhiyun/Desktop/MSCF/M4/FC/CPP/build/home2/CMakeFiles/rebuild_cache.dir
+/Users/zhiyun/Desktop/MSCF/M4/FC/CPP/build/home3/CMakeFiles/home3.dir
+/Users/zhiyun/Desktop/MSCF/M4/FC/CPP/build/home3/CMakeFiles/doc-home3.dir
+/Users/zhiyun/Desktop/MSCF/M4/FC/CPP/build/home3/CMakeFiles/edit_cache.dir
+/Users/zhiyun/Desktop/MSCF/M4/FC/CPP/build/home3/CMakeFiles/rebuild_cache.dir

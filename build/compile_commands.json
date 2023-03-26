@@ -143,5 +143,30 @@
   "directory": "/Users/zhiyun/Desktop/MSCF/M4/FC/CPP/build",
   "command": "/usr/bin/clang++ -I/Users/zhiyun/Desktop/MSCF/M4/FC/CPP -I/usr/local/Cellar/gsl/2.7.1/include -Wall -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk -std=c++17 -o home2/CMakeFiles/home2.dir/Src/test_home2.cpp.o -c /Users/zhiyun/Desktop/MSCF/M4/FC/CPP/home2/Src/test_home2.cpp",
   "file": "/Users/zhiyun/Desktop/MSCF/M4/FC/CPP/home2/Src/test_home2.cpp"
+},
+{
+  "directory": "/Users/zhiyun/Desktop/MSCF/M4/FC/CPP/build",
+  "command": "/usr/bin/clang++ -I/Users/zhiyun/Desktop/MSCF/M4/FC/CPP -I/usr/local/Cellar/gsl/2.7.1/include -Wall -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk -std=c++17 -o home3/CMakeFiles/home3.dir/Src/q1.cpp.o -c /Users/zhiyun/Desktop/MSCF/M4/FC/CPP/home3/Src/q1.cpp",
+  "file": "/Users/zhiyun/Desktop/MSCF/M4/FC/CPP/home3/Src/q1.cpp"
+},
+{
+  "directory": "/Users/zhiyun/Desktop/MSCF/M4/FC/CPP/build",
+  "command": "/usr/bin/clang++ -I/Users/zhiyun/Desktop/MSCF/M4/FC/CPP -I/usr/local/Cellar/gsl/2.7.1/include -Wall -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk -std=c++17 -o home3/CMakeFiles/home3.dir/Src/q2.cpp.o -c /Users/zhiyun/Desktop/MSCF/M4/FC/CPP/home3/Src/q2.cpp",
+  "file": "/Users/zhiyun/Desktop/MSCF/M4/FC/CPP/home3/Src/q2.cpp"
+},
+{
+  "directory": "/Users/zhiyun/Desktop/MSCF/M4/FC/CPP/build",
+  "command": "/usr/bin/clang++ -I/Users/zhiyun/Desktop/MSCF/M4/FC/CPP -I/usr/local/Cellar/gsl/2.7.1/include -Wall -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk -std=c++17 -o home3/CMakeFiles/home3.dir/Src/q3.cpp.o -c /Users/zhiyun/Desktop/MSCF/M4/FC/CPP/home3/Src/q3.cpp",
+  "file": "/Users/zhiyun/Desktop/MSCF/M4/FC/CPP/home3/Src/q3.cpp"
+},
+{
+  "directory": "/Users/zhiyun/Desktop/MSCF/M4/FC/CPP/build",
+  "command": "/usr/bin/clang++ -I/Users/zhiyun/Desktop/MSCF/M4/FC/CPP -I/usr/local/Cellar/gsl/2.7.1/include -Wall -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk -std=c++17 -o home3/CMakeFiles/home3.dir/Src/q4.cpp.o -c /Users/zhiyun/Desktop/MSCF/M4/FC/CPP/home3/Src/q4.cpp",
+  "file": "/Users/zhiyun/Desktop/MSCF/M4/FC/CPP/home3/Src/q4.cpp"
+},
+{
+  "directory": "/Users/zhiyun/Desktop/MSCF/M4/FC/CPP/build",
+  "command": "/usr/bin/clang++ -I/Users/zhiyun/Desktop/MSCF/M4/FC/CPP -I/usr/local/Cellar/gsl/2.7.1/include -Wall -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk -std=c++17 -o home3/CMakeFiles/home3.dir/Src/test_home3.cpp.o -c /Users/zhiyun/Desktop/MSCF/M4/FC/CPP/home3/Src/test_home3.cpp",
+  "file": "/Users/zhiyun/Desktop/MSCF/M4/FC/CPP/home3/Src/test_home3.cpp"
 }
 ]
