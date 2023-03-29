@@ -10,9 +10,15 @@ cfl::Function prb::forwardYTMCashFlow(const std::vector<double> &rPayments,
                                       double dInitialTime, double dY0, double dY1,
                                       const cfl::Root &rRoot)
 {
+    PRECONDITION(rPayments.size() == rPaymentTimes.size());
+    PRECONDITION(rPayments.size() > 0);
+    PRECONDITION(rPaymentTimes.front() > dInitialTime);
+    PRECONDITION(std::is_sorted(rPaymentTimes.begin(), rPaymentTimes.end(), std::less_equal<double>()));
+
     std::function<double(double)> uForwardYTMCashFlow = [rPayments, rPaymentTimes, rForward, dInitialTime, dY0, dY1, rRoot](double dT) 
     {
         PRECONDITION(dT >= dInitialTime);
+
         std::function<double(double)> uHelper = [rPayments, rPaymentTimes, rForward, dInitialTime, dT](double dYTM) mutable
         {
             double dPrice = 0.;
@@ -24,7 +30,9 @@ cfl::Function prb::forwardYTMCashFlow(const std::vector<double> &rPayments,
             dPrice *= std::exp(dYTM * (dT - dInitialTime));
             return dPrice - rForward(dT);
         };
+
         Function rF(uHelper, dY0, dY1);
+        
         return rRoot.find(rF, dY0, dY1);
     };
     return Function(uForwardYTMCashFlow, dInitialTime);

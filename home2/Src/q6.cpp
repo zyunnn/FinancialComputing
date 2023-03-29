@@ -9,6 +9,11 @@ double prb::yieldTMCashFlow(const std::vector<double> &rPayments,
                             double dValue, double dInitialTime,
                             double dY0, double dY1, const cfl::Root &rRoot)
 {
+    PRECONDITION(rPayments.size() == rPaymentTimes.size());
+    PRECONDITION(rPayments.size() > 0);
+    PRECONDITION(rPaymentTimes.front() > dInitialTime);
+    PRECONDITION(std::is_sorted(rPaymentTimes.begin(), rPaymentTimes.end(), std::less_equal<double>()));
+
     std::function<double(double)> uYieldYTMCashFlow = [rPayments, rPaymentTimes, dValue, dInitialTime](double dYTM) 
     {
         double dPrice = 0.;

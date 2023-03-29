@@ -8,6 +8,8 @@ double prb::yieldTMCouponBond(double dRate, double dPeriod, double dMaturity,
                               double dInitialTime, double dPrice, double dYield0,
                               const cfl::RootD &rRootD) 
 {
+    PRECONDITION((dRate > 0) & (dPeriod > 0) & (dMaturity > 0) & (dPrice > 0) & (dYield0 > 0));
+
     std::function<double(double)> uBond = [dRate, dPeriod, dMaturity, dInitialTime, dPrice](double dYTM) 
     {
         return couponBond(dRate, dPeriod, dMaturity, dYTM, dInitialTime, false) - dPrice;

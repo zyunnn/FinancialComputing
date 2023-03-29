@@ -7,6 +7,8 @@ using namespace std;
 double prb::durationCouponBond(double dRate, double dPeriod, double dMaturity,
                                double dYTM, double dInitialTime) 
 {
+    PRECONDITION((dRate > 0) & (dPeriod > 0) & (dMaturity > 0) & (dYTM > 0));
+
     double dCoupon = dRate * dPeriod;
     double dPrincipal = std::exp(-dYTM * (dMaturity - dInitialTime));
     vector<double> vCouponTimes;

@@ -38,6 +38,7 @@ namespace cflRoot
         {
             gsl_function uF;
             std::vector<Function> uG = {rF};
+            
             uF.function = &value;
             uF.params = &uG;
 
@@ -49,6 +50,7 @@ namespace cflRoot
             double dLo = dL, dHi = dR;
             double dRoot = 0;
             unsigned iSteps = 0;
+
             if (m_bFErr)
             {
                 double dY;
@@ -76,6 +78,7 @@ namespace cflRoot
                     iStatus = gsl_root_test_interval(dLo, dHi, m_dAbsErr, m_dRelErr);
                 }
             }
+            ASSERT((iStatus == GSL_SUCCESS) || (iSteps == m_iMaxSteps));
             return dRoot;
         }
 
