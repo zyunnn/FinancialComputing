@@ -13,7 +13,7 @@ class SplineInterp : public IInterp
         Function interpolate(const std::vector<double> &rArg, const std::vector<double> &rVal) const
         {
             PRECONDITION((rArg.size() == rVal.size()) && (rArg.size() >= 2));
-            PRECONDITION(is_sorted(rArg.begin(), rArg.end(), std::less_equal<double>()));
+            PRECONDITION(std::is_sorted(rArg.begin(), rArg.end(), std::less_equal<double>()));
 
             std::shared_ptr<gsl_spline> uS(gsl_spline_alloc(m_pT, rArg.size()), &gsl_spline_free);
             gsl_spline_init(uS.get(), rArg.data(), rVal.data(), rArg.size());
