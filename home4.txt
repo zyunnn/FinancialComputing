@@ -1,0 +1,230 @@
+Homework 4 by kramkov
+
+LEAST-SQUARES FITTING
+
+MULTI-DIM LINEAR LEAST-SQUARES FITTING
+
+Fitting with polynomials of order = 2
+free function = exp(x)
+
+We fit the function f(x) = 2*exp(x)
+
+Fitted coefficients and their covariance matrix:
+
+       value                  covariance matrix
+     0.78141         0.0122801        0.00299862       -0.00642561
+     1.14823        0.00299862         0.0164924       -0.00963841
+    0.992693       -0.00642561       -0.00963841        0.00963841
+
+chi^2 error = 0.439797
+
+Fit at the nodes of fitting
+
+         arg             exact           numeric           est err           act err      
+          -1          0.735759          0.993753          0.197077          0.257994      
+   -0.666667           1.02683          0.970538          0.132347         0.0562964      
+   -0.333333           1.43306            1.2255          0.107324          0.207565      
+-1.11022e-16                 2           1.78141          0.110815           0.21859      
+    0.333333           2.79122           2.67007          0.118696           0.12116      
+    0.666667           3.89547           3.93583          0.118696         0.0403596      
+           1           5.43656           5.64061          0.110815          0.204051      
+     1.33333           7.58734           7.87084          0.107324          0.283503      
+     1.66667            10.589           10.7471          0.132347          0.158117      
+           2           14.7781           14.4377          0.197077          0.340414      
+
+sum of squares of estimated errors = 0.188485
+sum of squares of actual errors = 0.439797
+
+Fit at random nodes
+
+         arg             exact           numeric           est err           act err      
+   -0.744903          0.949561          0.951697          0.144113        0.00213593      
+   -0.430931           1.29981           1.12085          0.110665          0.178957      
+    0.194025           2.42825           2.25569           0.11599           0.17256      
+    0.535138           3.41537           3.38783          0.119868         0.0275323      
+     0.68117           3.95238           4.00034          0.118478         0.0479634      
+     1.23054           6.84614           7.12058          0.106557          0.274439      
+      1.4287           8.34654           8.62142          0.110556          0.274884      
+     1.67483           10.6758            10.827           0.13347          0.151168      
+     1.89983           13.3696           13.2306           0.17377          0.138933      
+     1.98525           14.5618           14.2543          0.193455          0.307523      
+
+sum of squares of estimated errors = 0.183886
+sum of squares of actual errors = 0.352468
+
+DISCOUNT CURVE OBTAINED BY LEAST-SQUARES FIT OF YIELD CURVE
+
+initial time = 1
+
+Input discount factors:
+
+      time           value      
+       1.5          0.9674      
+         2        0.939098      
+       2.5        0.914449      
+         3        0.892917      
+       3.5        0.874059      
+         4        0.857504      
+       4.5         0.84294      
+         5        0.830103      
+       5.5        0.818769      
+         6        0.808748      
+       6.5        0.799874      
+         7        0.792008      
+
+We fit with constant yield.
+
+Fitted coefficients and their covariance matrix:
+
+       value      covariance matrix
+   0.0510151       6.69773e-06
+
+chi^2 error = 0.0008841
+
+Fitted discount factors and their errors:
+
+    time         value           err      
+       1             1             0      
+ 1.66667      0.966562      0.00166764      
+ 2.33333      0.934242      0.00322375      
+       3      0.903002      0.00467393      
+ 3.66667      0.872808      0.00602353      
+ 4.33333      0.843622      0.00727764      
+       5      0.815413      0.00844115      
+ 5.66667      0.788147      0.0095187      
+ 6.33333      0.761793      0.0105148      
+       7       0.73632      0.0114336      
+
+LEAST-SQUARES FIT OF DISCOUNT CURVE FOR HULL AND WHITE MODEL
+
+lambda = 0.05
+initial time = 1
+
+Input discount factors:
+
+      time           value      
+       1.5          0.9674      
+         2        0.939098      
+       2.5        0.914449      
+         3        0.892917      
+       3.5        0.874059      
+         4        0.857504      
+       4.5         0.84294      
+         5        0.830103      
+       5.5        0.818769      
+         6        0.808748      
+       6.5        0.799874      
+         7        0.792008      
+
+Fitted coefficients and their covariance matrix:
+
+       value            covariance matrix
+   -0.152746       2.65228e-05      -2.86514e-05
+    0.220502      -2.86514e-05       3.10054e-05
+
+chi^2 error = 5.60212e-06
+
+Fitted discount factors and their errors:
+
+    time         value           err      
+       1             1             0      
+ 1.66667      0.958153      0.000252476      
+ 2.33333      0.922419      0.000398269      
+       3      0.892098      0.000472774      
+ 3.66667      0.866608      0.000523116      
+ 4.33333      0.845465      0.000610699      
+       5      0.828266      0.000787039      
+ 5.66667      0.814679      0.00106712      
+ 6.33333      0.804431      0.00144333      
+       7      0.797299      0.00190645      
+
+LEAST-SQUARES FIT OF DISCOUNT CURVE IN NELSON-SIEGEL MODEL
+
+lambda = 0.05
+initial time = 1
+
+Input discount factors:
+
+      time           value      
+       1.5          0.9674      
+         2        0.939098      
+       2.5        0.914449      
+         3        0.892917      
+       3.5        0.874059      
+         4        0.857504      
+       4.5         0.84294      
+         5        0.830103      
+       5.5        0.818769      
+         6        0.808748      
+       6.5        0.799874      
+         7        0.792008      
+
+Fitted coefficients and their covariance matrix:
+
+       value                  covariance matrix
+    0.485612       0.000162787      -0.000162276      -0.000181002
+   -0.415815      -0.000162276       0.000161767       0.000180423
+   -0.710245      -0.000181002       0.000180423       0.000201385
+
+chi^2 error = 2.00562e-08
+
+Fitted discount factors and their errors:
+
+    time         value           err      
+       1             1             0      
+ 1.66667      0.957545      2.00159e-05      
+ 2.33333      0.922248      2.53473e-05      
+       3      0.892828      3.32175e-05      
+ 3.66667      0.868241      4.64687e-05      
+ 4.33333       0.84762      5.78835e-05      
+       5      0.830236      6.3475e-05      
+ 5.66667      0.815469      6.91927e-05      
+ 6.33333      0.802782      9.66241e-05      
+       7      0.791709      0.000163228      
+
+LEAST-SQUARES FIT OF DISCOUNT CURVE IN SVENSSON MODEL
+
+lambda1 = 0.02
+lambda2 = 0.1
+initial time = 1
+
+Input discount factors:
+
+      time           value      
+       1.5          0.9674      
+         2        0.939098      
+       2.5        0.914449      
+         3        0.892917      
+       3.5        0.874059      
+         4        0.857504      
+       4.5         0.84294      
+         5        0.830103      
+       5.5        0.818769      
+         6        0.808748      
+       6.5        0.799874      
+         7        0.792008      
+
+Fitted coefficients and their covariance matrix:
+
+       value                        covariance matrix
+    -2.10627        0.00295885       -0.00295897       -0.00345526       0.000103238
+     2.17626       -0.00295897        0.00295909        0.00345541      -0.000103242
+     2.51282       -0.00345526        0.00345541        0.00403509      -0.000120593
+   -0.220775       0.000103238      -0.000103242      -0.000120593        3.6119e-06
+
+chi^2 error = 2.32637e-11
+
+Fitted discount factors and their errors:
+
+    time         value           err      
+       1             1             0      
+ 1.66667      0.957523      7.72067e-07      
+ 2.33333      0.922292      1.06039e-06      
+       3      0.892917      1.60243e-06      
+ 3.66667      0.868304      1.84503e-06      
+ 4.33333      0.847595      2.1108e-06      
+       5      0.830104      2.78696e-06      
+ 5.66667      0.815287      3.3322e-06      
+ 6.33333      0.802706      3.61126e-06      
+       7      0.792016      6.97974e-06      
+
