@@ -1,9 +1,0 @@
-<map id="Function.hpp" name="Function.hpp">
-<area shape="rect" id="node1" title="One&#45;dimensional function object." alt="" coords="247,5,346,32"/>
-<area shape="rect" id="node2" href="$_data_8hpp.html" title="Useful data structures." alt="" coords="5,80,81,107"/>
-<area shape="rect" id="node3" href="$_fit_8hpp.html" title="Fitting of one&#45;dimensional functions." alt="" coords="105,80,167,107"/>
-<area shape="rect" id="node4" href="$_interp_8hpp.html" title="Interpolation of one&#45;dimensional functions." alt="" coords="192,80,273,107"/>
-<area shape="rect" id="node5" href="$_multi_function_8hpp.html" title="Multi&#45;dimensional function object." alt="" coords="297,80,424,107"/>
-<area shape="rect" id="node6" href="$_root_8hpp.html" title="Root finding with bracketing algorithm." alt="" coords="448,80,523,107"/>
-<area shape="rect" id="node7" href="$_root_d_8hpp.html" title="RootD finding with polishing algorithm." alt="" coords="547,80,632,107"/>
-</map>

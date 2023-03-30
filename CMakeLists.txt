@@ -55,7 +55,7 @@ add_subdirectory(setup)
 add_subdirectory(home1)
 add_subdirectory(home2)
 add_subdirectory(home3)
-# add_subdirectory(home4)
+add_subdirectory(home4)
 # add_subdirectory(home5)
 # add_subdirectory(home6) 
 

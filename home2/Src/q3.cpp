@@ -8,9 +8,6 @@ double prb::yieldTMCouponBond(double dRate, double dPeriod, double dMaturity,
                               double dInitialTime, double dPrice, double dYield0,
                               double dErr)
 {
-    PRECONDITION((dRate > 0) & (dPeriod > 0) & (dMaturity > 0) & 
-                 (dPrice > 0) & (dYield0 > 0) & (dErr > 0));
-
     double dYield = dYield0;
     double dUpdate = INT_MAX;
     double dBond, dDuration;

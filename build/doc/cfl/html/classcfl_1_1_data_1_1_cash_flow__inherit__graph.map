@@ -1,4 +1,0 @@
-<map id="cfl::Data::CashFlow" name="cfl::Data::CashFlow">
-<area shape="rect" id="node1" title="Cash flow at fixed rate over regular time intervals." alt="" coords="5,5,142,32"/>
-<area shape="rect" id="node2" href="$classcfl_1_1_data_1_1_swap.html" title="Interest rate swap." alt="" coords="18,80,129,107"/>
-</map>
