@@ -50,12 +50,17 @@ cfl::Function prb::discountSvenssonFit(const std::vector<double> &rTimes,
     rParam = uFit.param();
 
     // Discount curve and error of fit
-    Function uDiscount ([dInitialTime, uFit](double dT)
-                       { PRECONDITION(dT >= dInitialTime); 
-                         return dT == dInitialTime ? 1. : std::exp(-uFit.fit()(dT) * (dT - dInitialTime)); });
-
-    rErr = Function([uDiscount, uFit, dInitialTime](double dT) 
-                    { return dT == dInitialTime ? 0. : uDiscount(dT) * (dT - dInitialTime) * uFit.err()(dT); });
+    Function uDiscount([uFit, uT](double dT) 
+                       { 
+                            PRECONDITION(uT(dT) >= 0); 
+                            return uT(dT) ? exp(-uFit.fit()(dT) * uT(dT)): 1.; 
+                        });
+                       
+    rErr = Function([uDiscount, uFit, uT](double dT)
+                    { 
+                        PRECONDITION(uT(dT) >= 0); 
+                        return uT(dT) ? uDiscount(dT) * uT(dT) * uFit.err()(dT) : 0.; 
+                    });
     
     return uDiscount;
 }
