@@ -11,21 +11,19 @@ cfl::Function prb::discountYieldFit(const std::vector<double> &rTimes, const std
     PRECONDITION(rTimes.front() > dInitialTime);
     PRECONDITION(std::is_sorted(rTimes.begin(), rTimes.end(), std::less_equal<double>()));
 
+    // Helper function
+    Function uT([dInitialTime](double dT) { return dT - dInitialTime; }, dInitialTime);
+
+    // Market yield
     vector<double> uGamma(rTimes.size());
     std::transform(rTimes.begin(), rTimes.end(), rDF.begin(), uGamma.begin(), 
-                   [&dInitialTime](double dT, double dD) 
-                   {
-                    return -std::log(dD) / (dT - dInitialTime);
-                   });
+                   [uT](double dT, double dD) { return -std::log(dD) / uT(dT); });
 
+    // Least-squares fit
     rFit.assign(begin(rTimes), end(rTimes), begin(uGamma));
-    Function uF = rFit.fit();
-
-    std::function<double(double)> uDiscountYieldFit = [dInitialTime, uF](double dT)
-    {
-        PRECONDITION(dT >= dInitialTime);
-        return std::exp(-uF(dT) * (dT - dInitialTime));
-    };
-
-    return Function(uDiscountYieldFit, dInitialTime);
+    
+    // Discount curve and error of fit
+    Function uDiscount = exp(-rFit.fit() * uT);
+    rErr = uDiscount * uT * rFit.err();
+    return uDiscount;
 }

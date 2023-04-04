@@ -1,10 +1,14 @@
 #include "home4/home4.hpp"
 #include <gsl/gsl_multifit.h>
 #include <gsl/gsl_blas.h>
+#include <gsl/gsl_deriv.h>
 
 using namespace cfl;
 using namespace std;
 #include <iostream>
+
+typedef std::unique_ptr<gsl_vector, decltype(&gsl_vector_free)> gvector_; 
+typedef std::unique_ptr<gsl_matrix, decltype(&gsl_matrix_free)> gmatrix_; 
 
 class LeastSquareFit : public IFit 
 {
@@ -18,6 +22,9 @@ public:
                    const std::vector<double> &rWt, bool bChi2) 
             : LeastSquareFit(rBasisF, rFreeF)
     {
+        PRECONDITION((rArg.size() == rVal.size()) && (rArg.size() == rWt.size()));
+        PRECONDITION(rArg.size() > 1);
+
         int iN = rArg.size();       // number of observations
         int iM = rBasisF.size();    // number of coefficients
 
@@ -32,21 +39,16 @@ public:
             }
         }
         
-        std::unique_ptr<gsl_vector, decltype(&gsl_vector_free)>
-            uW(gsl_vector_alloc(iN), &gsl_vector_free);
+        gvector_ uW(gsl_vector_alloc(iN), &gsl_vector_free);
         std::copy(rWt.begin(), rWt.end(), gsl_vector_ptr(uW.get(), 0));
         
-        std::unique_ptr<gsl_vector, decltype(&gsl_vector_free)>
-            uY(gsl_vector_alloc(iN), &gsl_vector_free);
+        gvector_ uY(gsl_vector_alloc(iN), &gsl_vector_free);
         std::transform(rVal.begin(), rVal.end(), rArg.begin(), gsl_vector_ptr(uY.get(), 0), 
                        [&rFreeF](double dVal, double dArg) 
                        { return dVal - rFreeF(dArg); });
         
-        std::unique_ptr<gsl_vector, decltype(&gsl_vector_free)>
-            uC(gsl_vector_alloc(iM), &gsl_vector_free);
-        
-        std::unique_ptr<gsl_matrix, decltype(&gsl_matrix_free)>
-            uCov(gsl_matrix_alloc(iM, iM), &gsl_matrix_free);
+        gvector_ uC(gsl_vector_alloc(iM), &gsl_vector_free);
+        gmatrix_ uCov(gsl_matrix_alloc(iM, iM), &gsl_matrix_free);
 
         std::unique_ptr<gsl_multifit_linear_workspace, decltype(&gsl_multifit_linear_free)> 
             uWork(gsl_multifit_linear_alloc(iN, iM), &gsl_multifit_linear_free);
@@ -94,14 +96,40 @@ public:
 
     Function err() const
     {
-        // TODO:
-        return sqrt(m_uFreeF);
+        std::function<double(double)> uErr = [uBasis = m_uBasisF, uCov = m_uParam.cov](double dX)
+        {
+            // std::cout << "dX:" << dX << std::endl;
+            int iM = uBasis.size();
+            std::vector<double> uV(iM);
+            std::transform(uBasis.begin(), uBasis.end(), uV.begin(), [dX](Function uF){ return uF(dX); });
+
+            std::vector<double> uU(uV);
+            gsl_vector_const_view uUView = gsl_vector_const_view_array(uU.data(), uU.size());
+            gsl_vector_view uVView = gsl_vector_view_array(uV.data(), uV.size());
+            gsl_matrix_const_view uCovView = gsl_matrix_const_view_array(&uCov[0], iM, iM);
+            gsl_blas_dsymv(CblasUpper, 1., &uCovView.matrix, &uUView.vector, 0., &uVView.vector);
+            gsl_blas_ddot(&uUView.vector, &uVView.vector, &dX);
+
+            // gsl_function F;
+            // F.function = uBasis[0];
+            // F.function()
+            // gsl_deriv_central();
+
+            // ASSERT(dX >= 0);
+
+            return std::sqrt(dX);
+        };
+        return Function(uErr,
+                        [uBasis = m_uBasisF, uG = m_uFreeF](double dX)
+                        {
+                            return uG.belongs(dX) && std::all_of(uBasis.begin(), uBasis.end(), 
+                                        [&dX](Function uF) { return uF.belongs(dX); });
+                        });
     }
 
 private:
     std::vector<cfl::Function> m_uBasisF;
     Function m_uFreeF;
-    // std::vector<double> m_dVal, m_dArg;
     FitParam m_uParam;
 };
 

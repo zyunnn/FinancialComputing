@@ -17,53 +17,45 @@ cfl::Function prb::discountSvenssonFit(const std::vector<double> &rTimes,
     PRECONDITION(dLambda2 > 0);
     PRECONDITION(dLambda1 != dLambda2);
 
+    // Helper function
+    Function uT([dInitialTime](double dT) { return dT - dInitialTime; }, dInitialTime);
+
     // Market yield
     vector<double> uGamma(rTimes.size());
     std::transform(rTimes.begin(), rTimes.end(), rDF.begin(), uGamma.begin(), 
-                   [&dInitialTime](double dT, double dD) 
-                   { 
-                    return -std::log(dD) / (dT - dInitialTime); 
-                   });
+                   [uT](double dT, double dD) { return -std::log(dD) / uT(dT); });
 
     // Least-squares fit
-    Function uFree = Function(0.);
-    std::vector<Function> uBase(4, Function (1.));
-    uBase[1] = Function([&dInitialTime, &dLambda1](double dX)
-                        {
-                            return (1 - std::exp(-dLambda1 * (dX - dInitialTime))) / (dLambda1 * (dX - dInitialTime));
-                        });
-    uBase[2] = Function([&dInitialTime, &dLambda1](double dX)
-                        { 
-                            return (1 - std::exp(-dLambda1 * (dX - dInitialTime))) / (dLambda1 * (dX - dInitialTime)) 
-                                      - std::exp(-dLambda1 * (dX - dInitialTime)); 
-                        });
-    uBase[3] = Function([&dInitialTime, &dLambda2](double dX)
-                        { 
-                            return (1 - std::exp(-dLambda2 * (dX - dInitialTime))) / (dLambda2 * (dX - dInitialTime)) 
-                                      - std::exp(-dLambda2 * (dX - dInitialTime)); 
-                        });
+    Function uFree (0.);
+    Function uBasis1 (1.);
+    Function uBasis2 ([dLambda1, uT](double dX) 
+                     {
+                        double dY = dLambda1 * uT(dX);
+                        return (1 - std::exp(-dY)) / dY;
+                     });
+    Function uBasis3 ([dLambda1, uT](double dX)
+                     { 
+                        double dY = dLambda1 * uT(dX);
+                        return (1 - std::exp(-dY)) / dY - std::exp(-dY); 
+                     });
+    Function uBasis4 ([dLambda2, uT](double dX)
+                     { 
+                        double dY = dLambda2 * uT(dX);
+                        return (1 - std::exp(-dY)) / dY - std::exp(-dY); 
+                     });
+    std::vector<Function> uBase{uBasis1, uBasis2, uBasis3, uBasis4};
+
     Fit uFit = prb::linear(uBase, uFree);
     uFit.assign(begin(rTimes), end(rTimes), begin(uGamma));
-    Function uF = uFit.fit();
-    rErr = uFit.err();
     rParam = uFit.param();
 
-    // Discount curve
-    std::function<double(double)> uDiscountSvenssonFit = [dLambda1, dLambda2, dInitialTime, 
-                                        dC0 = rParam.fit[0], dC1 = rParam.fit[1], 
-                                        dC2 = rParam.fit[2], dC3 = rParam.fit[3]](double dT)
-    {
-        PRECONDITION(dT >= dInitialTime);
-        if (dT == dInitialTime) return 1.;
+    // Discount curve and error of fit
+    Function uDiscount ([dInitialTime, uFit](double dT)
+                       { PRECONDITION(dT >= dInitialTime); 
+                         return dT == dInitialTime ? 1. : std::exp(-uFit.fit()(dT) * (dT - dInitialTime)); });
 
-        double dX1 = std::exp(-dLambda1 * (dT - dInitialTime));
-        double dX2 = std::exp(-dLambda2 * (dT - dInitialTime));
-        double dY1 = (1 - dX1) / (dLambda1 * (dT - dInitialTime));
-        double dY2 = (1 - dX2) / (dLambda2 * (dT - dInitialTime));
-
-        double dYield = dC0 + dC1 * dY1 + dC2 * (dY1 - dX1) + dC3 * (dY2 - dX2);
-        return std::exp(-dYield * (dT - dInitialTime));
-    };
-
-    return Function(uDiscountSvenssonFit, dInitialTime);
+    rErr = Function([uDiscount, uFit, dInitialTime](double dT) 
+                    { return dT == dInitialTime ? 0. : uDiscount(dT) * (dT - dInitialTime) * uFit.err()(dT); });
+    
+    return uDiscount;
 }

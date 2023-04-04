@@ -14,37 +14,36 @@ cfl::Function prb::discountHullWhiteFit(const std::vector<double> &rDiscountTime
     PRECONDITION(std::is_sorted(rDiscountTimes.begin(), rDiscountTimes.end(), std::less_equal<double>()));
     PRECONDITION(dLambda >= 0);
 
+    // Helper function
+    Function uT([dInitialTime](double dT) { return dT - dInitialTime; }, dInitialTime);
+
     // Market yield
     vector<double> uGamma(rDiscountTimes.size());
     std::transform(rDiscountTimes.begin(), rDiscountTimes.end(), rDiscountFactors.begin(), uGamma.begin(), 
-                   [&dInitialTime](double dT, double dD) 
-                   { 
-                    return -std::log(dD) / (dT - dInitialTime); 
-                   });
+                   [uT](double dT, double dD)  {  return -std::log(dD) / uT(dT);  });
+
+    // Fitting functions
+    Function uFree (0.);
+    Function uBasis1 (1.);
+    Function uBasis2 ([dLambda, uT](double dX)
+                     { 
+                        double dY = dLambda * uT(dX);
+                        return (1 - std::exp(-dY)) / dY; 
+                     });
+    std::vector<Function> uBase{uBasis1, uBasis2};
 
     // Least-squares fit
-    Function uFree = Function(0.);
-    std::vector<Function> uBase(2, Function (1.));
-    uBase.back() = Function([&dInitialTime, &dLambda](double dX)
-                            { 
-                                return (1 - std::exp(-dLambda * (dX - dInitialTime))) / (dLambda * (dX - dInitialTime)); 
-                            });
     Fit uFit = prb::linear(uBase, uFree);
     uFit.assign(begin(rDiscountTimes), end(rDiscountTimes), begin(uGamma));
-    Function uF = uFit.fit();
-    rErr = uFit.err();
     rParam = uFit.param();
 
-    // Discount curve
-    std::function<double(double)> uDiscountHullWhiteFit = 
-        [dLambda, dInitialTime, dC0 = rParam.fit[0], dC1 = rParam.fit[1]](double dT)
-    {
-        PRECONDITION(dT >= dInitialTime);
-        if (dT == dInitialTime) return 1.;
+    // Discount curve and error of fit
+    Function uDiscount([dInitialTime, uFit](double dT)
+                       { PRECONDITION(dT >= dInitialTime); 
+                         return dT == dInitialTime ? 1. : std::exp(-uFit.fit()(dT) * (dT - dInitialTime)); });
 
-        double dYield = dC0 + dC1 * (1 - std::exp(-dLambda * (dT - dInitialTime))) / (dLambda * (dT - dInitialTime));
-        return std::exp(-dYield * (dT - dInitialTime));
-    };
+    rErr = Function([uDiscount, uFit, dInitialTime](double dT) 
+                    { return dT == dInitialTime ? 0. : uDiscount(dT) * (dT - dInitialTime) * uFit.err()(dT); });
 
-    return Function(uDiscountHullWhiteFit, dInitialTime);
+    return uDiscount;
 }
