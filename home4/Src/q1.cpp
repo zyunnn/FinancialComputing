@@ -5,7 +5,6 @@
 
 using namespace cfl;
 using namespace std;
-#include <iostream>
 
 typedef std::unique_ptr<gsl_vector, decltype(&gsl_vector_free)> gvector_; 
 typedef std::unique_ptr<gsl_matrix, decltype(&gsl_matrix_free)> gmatrix_; 
@@ -53,9 +52,6 @@ public:
         std::unique_ptr<gsl_multifit_linear_workspace, decltype(&gsl_multifit_linear_free)> 
             uWork(gsl_multifit_linear_alloc(iN, iM), &gsl_multifit_linear_free);
 
-        // m_uParam.fit.resize(iM);
-        // m_uParam.cov.resize(iM*iM);
-
         double *pChi2 = &m_uParam.chi2;
 
         gsl_multifit_wlinear(uX.get(), uW.get(), uY.get(), 
@@ -98,7 +94,6 @@ public:
     {
         std::function<double(double)> uErr = [uBasis = m_uBasisF, uCov = m_uParam.cov](double dX)
         {
-            // std::cout << "dX:" << dX << std::endl;
             int iM = uBasis.size();
             std::vector<double> uV(iM);
             std::transform(uBasis.begin(), uBasis.end(), uV.begin(), [dX](Function uF){ return uF(dX); });
@@ -110,12 +105,7 @@ public:
             gsl_blas_dsymv(CblasUpper, 1., &uCovView.matrix, &uUView.vector, 0., &uVView.vector);
             gsl_blas_ddot(&uUView.vector, &uVView.vector, &dX);
 
-            // gsl_function F;
-            // F.function = uBasis[0];
-            // F.function()
-            // gsl_deriv_central();
-
-            // ASSERT(dX >= 0);
+            ASSERT(dX >= 0);
 
             return std::sqrt(dX);
         };
