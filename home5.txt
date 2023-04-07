@@ -1,0 +1,301 @@
+Homework 5 by kramkov
+
+LEAST-SQUARES FITTING
+
+LEAST-SQUARES FITTING WITH BASIS SPLINES
+
+BASIS SPLINES WITH GENERAL BREAKPOINTS
+
+order = 2
+breakpoints:
+[0] = -1
+[1] = -0.744903
+[2] = 1.67483
+[3] = 2
+
+We fit the function f(x) = 2*exp(x)
+
+Fitted coefficients and their covariance matrix:
+
+       value                        covariance matrix
+    0.735759           1.23667                 0                 0                 0
+   -0.506644                 0          0.565276         -0.232994                 0
+     8.92344                 0         -0.232994          0.520346                 0
+     14.7781                 0                 0                 0           1.23667
+
+chi^2 error = 7.42001
+
+Fit at the nodes of fitting
+
+         arg             exact           numeric           est err           act err      
+          -1          0.735759          0.735759           1.11206                 0      
+   -0.666667           1.02683         -0.201746          0.717829           1.22858      
+   -0.333333           1.43306           1.09731          0.581903          0.335758      
+-1.11022e-16                 2           2.39636          0.469929          0.396357      
+    0.333333           2.79122           3.69541          0.402423          0.904183      
+    0.666667           3.89547           4.99446          0.402423           1.09899      
+           1           5.43656           6.29351          0.469929          0.856947      
+     1.33333           7.58734           7.59256          0.581903        0.00522648      
+     1.66667            10.589           8.89161          0.717829           1.69737      
+           2           14.7781           14.7781           1.11206                 0      
+
+sum of squares of estimated errors = 4.94667
+sum of squares of actual errors = 7.42001
+
+Fit at random nodes
+
+         arg             exact           numeric           est err           act err      
+   -0.744903          0.949561         -0.506644          0.751849           1.45621      
+   -0.430931           1.29981          0.716953          0.619872          0.582855      
+    0.194025           2.42825            3.1525          0.423548          0.724249      
+    0.535138           3.41537           4.48187          0.393587            1.0665      
+     0.68117           3.95238           5.05098          0.404081            1.0986      
+     1.23054           6.84614           7.19195          0.544068          0.345814      
+      1.4287           8.34654           7.96422          0.618985           0.38232      
+     1.67483           10.6758           8.92344           0.72135           1.75237      
+     1.89983           13.3696           12.9746          0.800934          0.394962      
+     1.98525           14.5618           14.5126           1.06213         0.0491862      
+
+sum of squares of estimated errors = 4.41621
+sum of squares of actual errors = 8.82413
+
+BASIS SPLINES WITH UNIFORM BREAKPOINTS
+
+order = 2
+interval = [-1,2]
+number of breakpoints = 4
+
+We fit the function f(x) = 2*exp(x)
+
+Fitted coefficients and their covariance matrix:
+
+       value                        covariance matrix
+    0.683073          0.123311        -0.0272451        0.00610289       -0.00174368
+     1.87975        -0.0272451         0.0953577        -0.0213601        0.00610289
+     4.91628        0.00610289        -0.0213601         0.0953577        -0.0272451
+     14.2596       -0.00174368        0.00610289        -0.0272451          0.123311
+
+chi^2 error = 1.07825
+
+Fit at the nodes of fitting
+
+         arg             exact           numeric           est err           act err      
+          -1          0.735759          0.683073          0.351157         0.0526854      
+   -0.666667           1.02683           1.08197          0.230849          0.055131      
+   -0.333333           1.43306           1.48086          0.209699         0.0477943      
+-1.11022e-16                 2           1.87975            0.3088          0.120251      
+    0.333333           2.79122           2.89193          0.208526            0.1007      
+    0.666667           3.89547            3.9041          0.208526        0.00863383      
+           1           5.43656           4.91628            0.3088          0.520285      
+     1.33333           7.58734            8.0307          0.209699          0.443369      
+     1.66667            10.589           11.1451          0.230849           0.55615      
+           2           14.7781           14.2596          0.351157          0.518556      
+
+sum of squares of estimated errors = 0.718834
+sum of squares of actual errors = 1.07825
+
+Fit at random nodes
+
+         arg             exact           numeric           est err           act err      
+   -0.744903          0.949561          0.988342          0.253523         0.0387811      
+   -0.430931           1.29981           1.36406           0.20104         0.0642567      
+    0.194025           2.42825           2.46891          0.242597         0.0406582      
+    0.535138           3.41537           3.50471          0.193098         0.0893435      
+     0.68117           3.95238           3.94814          0.211331        0.00423513      
+     1.23054           6.84614           7.07025          0.230968          0.224116      
+      1.4287           8.34654           8.92174          0.201098          0.575201      
+     1.67483           10.6758           11.2214          0.232984          0.545622      
+     1.89983           13.3696           13.3237          0.309662         0.0458925      
+     1.98525           14.5618           14.1218          0.344863          0.440011      
+
+sum of squares of estimated errors = 0.608381
+sum of squares of actual errors = 0.889789
+
+FORWARD PRICES FOR EXCHANGE RATES BY LEAST-SQUARES FIT
+
+spot FX rate = 100
+initial time = 1
+
+Input discount factors:
+
+      time      domestic DF      foreign DF      
+       1.5        0.978976        0.952052      
+         2        0.959773        0.907937      
+       2.5        0.942207         0.86728      
+         3        0.926118         0.82975      
+       3.5        0.911365        0.795053      
+         4         0.89782        0.762926      
+       4.5        0.885373        0.733137      
+         5        0.873923        0.705478      
+       5.5        0.863381         0.67976      
+         6        0.853665        0.655817      
+       6.5        0.844705        0.633498      
+         7        0.836436        0.612667      
+
+Basis spline with uniform breakpoints
+
+order = 2
+interval = [1,7]
+number of breakpoints = 3
+
+Fitted coefficients and their covariance matrix:
+
+       value                  covariance matrix
+   -0.056109       5.86095e-10      -1.54772e-10       5.95279e-11
+  -0.0543162      -1.54772e-10       2.43214e-10      -9.35438e-11
+  -0.0519139       5.95279e-11      -9.35438e-11       3.30683e-10
+
+chi^2 error = 6.70454e-09
+
+Fitted forward exchange rates and their errors:
+
+    time         value           err      
+       1           100             0      
+ 1.66667       96.3541      0.00113656      
+ 2.33333       92.8904      0.00152951      
+       3       89.5989      0.00183123      
+ 3.66667       86.4698      0.00299613      
+ 4.33333       83.5133      0.00371166      
+       5       80.7298      0.00328145      
+ 5.66667       78.0947      0.003715      
+ 6.33333       75.5994      0.00540521      
+       7        73.236      0.00799065      
+
+LEAST-SQUARES FIT OF DISCOUNT CURVE TO FLOAT RATES
+
+initial time = 1
+
+interest rates
+
+   periods           rates      
+  0.142857            0.04      
+  0.285714       0.0428571      
+  0.428571       0.0457143      
+  0.571429       0.0485714      
+  0.714286       0.0514286      
+  0.857143       0.0542857      
+
+Basis spline with uniform breakpoints
+
+order = 2
+interval = [1,1.85714]
+number of breakpoints = 3
+
+Fitted coefficients and their covariance matrix:
+
+       value                  covariance matrix
+   0.0371857       1.29393e-09      -2.89841e-10       8.28116e-11
+   0.0452947      -2.89841e-10       3.62301e-10      -1.03515e-10
+    0.053081       8.28116e-11      -1.03515e-10       4.08882e-10
+
+chi^2 error = 1.7701e-09
+
+Fitted discount factors and their errors:
+
+    time         value           err      
+       1             1             0      
+ 1.08658      0.996644      2.35568e-06      
+ 1.17316      0.993018      3.34809e-06      
+ 1.25974      0.989124      3.59204e-06      
+ 1.34632      0.984967      4.75532e-06      
+  1.4329      0.980549      7.97515e-06      
+ 1.51948      0.975907      7.3238e-06      
+ 1.60606      0.971022      7.06811e-06      
+ 1.69264      0.965899      8.45323e-06      
+ 1.77922      0.960541      1.19497e-05      
+
+DISCOUNT CURVE OBTAINED FROM SWAP RATES BY LEAST-SQUARES FIT
+
+period between payments = 0.0833333
+initial time = 1
+
+swap rates:
+[0] = 0.12
+[1] = 0.125
+[2] = 0.13
+[3] = 0.135
+[4] = 0.14
+[5] = 0.145
+[6] = 0.15
+[7] = 0.155
+[8] = 0.16
+[9] = 0.165
+
+Basis spline with uniform breakpoints
+
+order = 2
+interval = [1,1.83333]
+number of breakpoints = 3
+
+Fitted coefficients and their covariance matrix:
+
+       value                  covariance matrix
+      0.1144       1.40793e-09      -3.62274e-10       1.31736e-10
+    0.139371      -3.62274e-10       5.43411e-10      -1.97604e-10
+    0.164981       1.31736e-10      -1.97604e-10       7.08081e-10
+
+chi^2 error = 9.79787e-09
+
+Fitted discount factors and their errors:
+
+    time         value           err      
+   1.001      0.999886      3.74049e-08      
+ 1.08518      0.989873      2.37877e-06      
+ 1.16935      0.979128      3.36162e-06      
+ 1.25353      0.967679      3.83541e-06      
+  1.3377      0.955551      5.55395e-06      
+ 1.42188      0.942771      9.11441e-06      
+ 1.50605      0.929314      8.16263e-06      
+ 1.59023      0.915251      7.86175e-06      
+  1.6744      0.900617      9.7321e-06      
+ 1.75858      0.885445      1.40266e-05      
+
+APPROXIMATE LEAST-SQUARES FIT OF DISCOUNT CURVE
+
+initial time = 1
+
+Input discount factors:
+
+      time           value      
+       1.5          0.9674      
+         2        0.939098      
+       2.5        0.914449      
+         3        0.892917      
+       3.5        0.874059      
+         4        0.857504      
+       4.5         0.84294      
+         5        0.830103      
+       5.5        0.818769      
+         6        0.808748      
+       6.5        0.799874      
+         7        0.792008      
+
+Basis spline with uniform breakpoints
+
+order = 2
+interval = [1,7]
+number of breakpoints = 3
+
+Fitted coefficients and their covariance matrix:
+
+       value                  covariance matrix
+    0.068754       4.21342e-07      -3.50341e-08       9.73132e-09
+   0.0507381      -3.50341e-08       2.55776e-08      -7.10462e-09
+   0.0386318       9.73132e-09      -7.10462e-09       1.36958e-08
+
+chi^2 error = 5.07994e-06
+
+Fitted discount factors and their errors:
+
+    time         value           err      
+       1             1             0      
+ 1.66667      0.957751      0.000315421      
+ 2.33333      0.922197      0.000422014      
+       3      0.892716      0.000368565      
+ 3.66667      0.868802      0.000315042      
+ 4.33333      0.848196      0.000389465      
+       5      0.829601      0.000327363      
+ 5.66667      0.814329      0.000288691      
+ 6.33333       0.80221      0.000360314      
+       7      0.793112      0.000556904      
+
