@@ -1,5 +1,4 @@
 #include "home6/home6.hpp"
-#include <vector>
 
 using namespace cfl;
 using namespace std;
@@ -52,10 +51,6 @@ cfl::GaussRollback prb::expl(double dP)
 {
     PRECONDITION((dP > 0) && (dP <= 0.5));
     return cfl::GaussRollback(new Explicit(dP));
-}
-cfl::GaussRollback prb::fft2()
-{
-    return cfl::GaussRollback();
 }
 
 cfl::GaussRollback prb::fft()

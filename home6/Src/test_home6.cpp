@@ -136,8 +136,8 @@ void gaussRollback()
 	sMethod = "Implicit scheme with default parameters";
 	testGaussRollback(prb::impl(), sMethod, bRadix2);
 
-	// sMethod = "Crank-Nicolson scheme with default parameters";
-	// testGaussRollback(prb::crankNicolson(), sMethod, bRadix2);
+	sMethod = "Crank-Nicolson scheme with default parameters";
+	testGaussRollback(prb::crankNicolson(), sMethod, bRadix2);
 
 	// sMethod = "3-layer scheme with Crank Nicolson";
 	// testGaussRollback(chain("crankNicolson"), sMethod, bRadix2);
