@@ -52,17 +52,3 @@ cfl::GaussRollback prb::expl(double dP)
     PRECONDITION((dP > 0) && (dP <= 0.5));
     return cfl::GaussRollback(new Explicit(dP));
 }
-
-cfl::GaussRollback prb::fft()
-{
-    return cfl::GaussRollback();
-}
-
-cfl::GaussRollback prb::chain(unsigned iExplSteps, 
-                              const cfl::GaussRollback &rFast, 
-                              unsigned iImplSteps,
-                              double dExplP, 
-                              double dImplP)
-{
-    return cfl::GaussRollback();
-}

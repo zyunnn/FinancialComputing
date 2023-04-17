@@ -31,8 +31,8 @@ public:
         // Build tridiagonal matrix (positive definite)
         std::valarray<double> dCoef{-m_dQ, (1 + 2 * m_dQ), -m_dQ};        // Coef: (-q, (2q+1), -q)
         vector<vector<double>> uTridiag(iN, vector<double>(iN));
-        uTridiag.front().front() = 1.;
-        uTridiag.back().back() = 1.;
+        uTridiag[0][0] = 1.;
+        uTridiag[iN-1][iN-1] = 1.;
         for (int i = 1; i < iN-1; i++)
         {
             std::copy(begin(dCoef), end(dCoef), uTridiag[i].begin() + i - 1);

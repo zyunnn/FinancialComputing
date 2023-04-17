@@ -14,6 +14,7 @@ public:
     CrankNicolson(double dR, unsigned iSize, double dH, double dVar) 
         : CrankNicolson(dR)
     {
+        m_dH = dH;
         m_iStep = std::ceil(dVar / (dH * dR));
         m_dQ = dVar / (2 * pow(dH, 2) * m_iStep);
     }
@@ -22,6 +23,8 @@ public:
     {
         return new CrankNicolson(m_dR, iSize, dH, dVar);
     }
+
+    int get_h() { return m_dH; }
 
     void rollback(std::valarray<double> &rValues) const
     {
@@ -72,7 +75,7 @@ public:
     }
 
 private:
-    double m_dR, m_dQ;
+    double m_dR, m_dQ, m_dH;
     int m_iStep;
 };
 

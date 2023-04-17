@@ -15,7 +15,6 @@ using namespace test::Data;
 
 namespace test_GaussRollback
 {
-	/*
 	class Chain : public IGaussRollback
 	{
 	public:
@@ -58,7 +57,7 @@ namespace test_GaussRollback
 		{
 			m_uRollback.rollback(rValues);
 		}
-
+	
 	private:
 		std::string m_sFast;
 		GaussRollback m_uRollback;
@@ -67,7 +66,7 @@ namespace test_GaussRollback
 	cfl::GaussRollback chain(const char *sFast)
 	{
 		return GaussRollback(new Chain(sFast));
-	}*/
+	}
 }
 
 
@@ -139,8 +138,8 @@ void gaussRollback()
 	sMethod = "Crank-Nicolson scheme with default parameters";
 	testGaussRollback(prb::crankNicolson(), sMethod, bRadix2);
 
-	// sMethod = "3-layer scheme with Crank Nicolson";
-	// testGaussRollback(chain("crankNicolson"), sMethod, bRadix2);
+	sMethod = "3-layer scheme with Crank Nicolson";
+	testGaussRollback(chain("crankNicolson"), sMethod, bRadix2);
 
 	// sMethod = "Fast Fourier Transform: general form";
 	// testGaussRollback(prb::fft(), sMethod, bRadix2);
