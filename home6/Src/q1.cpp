@@ -7,10 +7,10 @@ using namespace std;
 class Explicit : public IGaussRollback
 {
 public:
-    Explicit(double dP) : m_dP(dP) {}
+    Explicit(double dP, unsigned iSize = 0) : m_dP(dP), m_iSize(iSize) {}
 
     Explicit(double dP, unsigned iSize, double dH, double dVar) 
-        : Explicit(dP)
+        : Explicit(dP, iSize)
     {
         m_iStep = std::ceil(dVar / (2 * pow(dH, 2) * dP));
         m_dQ = dVar / (2 * pow(dH, 2) * m_iStep);
@@ -23,16 +23,15 @@ public:
 
     void rollback(std::valarray<double> &rValues) const
     {
-        int iN = rValues.size();
         std::valarray<double> uGrid(rValues);
 
         for (int m = 0; m < m_iStep; m++) 
         {
             // Compute delta for current timestep
-            std::valarray<double> uDelta(iN);
-            for (int n = 0; n < iN; n++)
+            std::valarray<double> uDelta(m_iSize);
+            for (int n = 0; n < m_iSize; n++)
             {
-                int idx = n == 0 ? 1 : (n == iN-1 ? iN-2 : n);
+                int idx = n == 0 ? 1 : (n == m_iSize-1 ? m_iSize-2 : n);
                 uDelta[n] = uGrid[idx-1] - 2 * uGrid[n] + uGrid[idx+1];
             }
             // Update value
@@ -44,6 +43,7 @@ public:
 
 private:
     double m_dP, m_dQ;
+    unsigned m_iSize;
     int m_iStep;
 };
 

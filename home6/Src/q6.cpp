@@ -6,8 +6,7 @@ using namespace std;
 class Chain : public IGaussRollback
 {
 public:
-    Chain(unsigned iExplSteps, const cfl::GaussRollback &rFast, unsigned iImplSteps,
-          double dExplP, double dImplP)
+    Chain(unsigned iExplSteps, const cfl::GaussRollback &rFast, unsigned iImplSteps, double dExplP, double dImplP)
         : m_fast(rFast), m_iEXplSteps(iExplSteps), m_iImplSteps(iImplSteps), m_dExplP(dExplP), m_dImplP(dImplP)
     { }
 

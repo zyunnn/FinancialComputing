@@ -141,18 +141,18 @@ void gaussRollback()
 	sMethod = "3-layer scheme with Crank Nicolson";
 	testGaussRollback(chain("crankNicolson"), sMethod, bRadix2);
 
-	// sMethod = "Fast Fourier Transform: general form";
-	// testGaussRollback(prb::fft(), sMethod, bRadix2);
+	sMethod = "Fast Fourier Transform: general form";
+	testGaussRollback(prb::fft(), sMethod, bRadix2);
 
-	// sMethod = "3-layer scheme with FFT general radix";
-	// testGaussRollback(chain("fft"), sMethod, bRadix2);
+	sMethod = "3-layer scheme with FFT general radix";
+	testGaussRollback(chain("fft"), sMethod, bRadix2);
 
-	// bRadix2 = true;
-	// sMethod = "Fast Fourier Transform: radix-2";
-	// testGaussRollback(prb::fft2(), sMethod, bRadix2);
+	bRadix2 = true;
+	sMethod = "Fast Fourier Transform: radix-2";
+	testGaussRollback(prb::fft2(), sMethod, bRadix2);
 
-	// sMethod = "3-layer scheme with FFT radix-2";
-	// testGaussRollback(chain("fft2"), sMethod, bRadix2);
+	sMethod = "3-layer scheme with FFT radix-2";
+	testGaussRollback(chain("fft2"), sMethod, bRadix2);
 };
 
 std::function<void()> test_home6()
